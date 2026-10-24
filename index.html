@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123c2b">
+<title>FC Vendenheim — Analyse match</title>
+<style>
+:root{--green:#123c2b;--green2:#1f6b49;--mint:#e6f3eb;--bg:#f4f7f5;--card:#fff;--text:#17251d;--muted:#637168;--line:#dce5df;--red:#a72f36;--redbg:#fae9ea;--gold:#f3c969}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.top{background:var(--green);color:white;padding:18px 16px 20px}.top-inner,.wrap{max-width:960px;margin:auto}.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;opacity:.8}.top h1{font-size:1.4rem;margin:5px 0 3px}.top p{margin:0;color:#d5e6dc;font-size:.92rem}.wrap{padding:14px 12px 36px}.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px;margin-bottom:13px;box-shadow:0 2px 8px #14271a08}.panel h2{font-size:1.05rem;margin:0 0 12px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field label{display:block;font-size:.82rem;font-weight:700;margin-bottom:5px;color:var(--muted)}input,select{width:100%;min-width:0;border:1px solid var(--line);border-radius:10px;padding:11px;background:white;color:var(--text)}.field.full{grid-column:1/-1}.btn{border:1px solid var(--line);background:white;color:var(--text);border-radius:11px;padding:10px 12px;font-weight:700}.btn.primary{background:var(--green2);border-color:var(--green2);color:white}.btn.selected{background:var(--mint);border-color:var(--green2);color:var(--green)}.btn.danger{color:var(--red);background:var(--redbg);border-color:#f1c9cb}.btnrow{display:flex;flex-wrap:wrap;gap:8px}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:13px}.tab{padding:12px 6px;border:1px solid var(--line);border-radius:12px;background:white;font-size:.9rem;font-weight:800}.tab[aria-selected=true]{background:var(--green);border-color:var(--green);color:white}.subnote{font-size:.85rem;color:var(--muted);margin:0 0 12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}.statbutton{min-height:68px;text-align:left;display:flex;flex-direction:column;justify-content:center;gap:3px}.statbutton span:first-child{font-size:1rem}.statbutton small{color:var(--muted);font-weight:500}.terrain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:7px;border:2px solid #a9c6b4;border-radius:12px;background:#dcefe1}.zone{min-height:68px;border:1px solid #9bbda7;border-radius:8px;background:#f8fcf9;color:#173e2a;padding:7px 3px;font-weight:800;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2px}.zone small{font-size:.7rem;font-weight:500}.zone.active{background:var(--gold);border:2px solid #785a13}.zone-count{font-size:.72rem;font-weight:600;color:#52665a}.pitchlabel{display:flex;justify-content:space-between;color:var(--muted);font-size:.76rem;margin:4px 2px 8px}.sectionlabel{font-size:.86rem;font-weight:800;margin:14px 0 7px}.hint{font-size:.78rem;color:var(--muted);margin-top:8px}.statsgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.metric{padding:12px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}.metric strong{display:block;font-size:1.45rem}.metric span{font-size:.8rem;color:var(--muted)}.log{display:flex;flex-direction:column;gap:7px}.event{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font-size:.86rem}.event-main{min-width:0}.event-main strong{display:block}.event-main small{color:var(--muted)}.empty{color:var(--muted);font-size:.9rem;padding:8px 0}.hidden{display:none!important}.foot{font-size:.8rem;color:var(--muted);text-align:center;padding:10px}.status{font-size:.85rem;padding:10px;border-radius:10px;background:var(--mint);color:var(--green);margin-top:10px}.pill{display:inline-block;border-radius:99px;background:var(--mint);padding:3px 8px;font-size:.74rem;font-weight:700;color:var(--green)}.mini{padding:7px 9px;font-size:.8rem}.wide{width:100%}@media(min-width:700px){.wrap{padding:22px 18px 40px}.main-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:13px;align-items:start}.main-grid .panel{margin-bottom:13px}.formgrid{grid-template-columns:repeat(3,1fr)}.field.full{grid-column:auto}.terrain{gap:7px}.zone{min-height:78px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-inner"><div class="eyebrow">Outil d'analyse tactique</div><h1>FC Vendenheim · Analyse match</h1><p>Statistiques de tirs, couloirs d'attaque et zones de récupération/perte.</p></div></header>
+<main class="wrap">
+<section class="panel">
+<h2>1. Fiche du match</h2>
+<div class="formgrid">
+<div class="field"><label for="matchDate">Date du match</label><input id="matchDate" type="date"></div>
+<div class="field"><label for="team">Équipe FCV</label><select id="team"><option value="Équipe 1">Équipe 1</option><option value="Équipe 2">Équipe 2</option></select></div>
+<div class="field full"><label for="opponent">Adversaire</label><input id="opponent" type="text" placeholder="Nom du club adverse" maxlength="100"></div>
+</div>
+<div class="btnrow" style="margin-top:12px"><button class="btn primary" id="newMatch">Créer / ouvrir ce match</button><button class="btn" id="clearForm">Nouveau formulaire</button></div>
+<div id="matchStatus" class="status" aria-live="polite">Renseigne la date, l'équipe et l'adversaire, puis ouvre le match.</div>
+</section>
+
+<section class="panel">
+<h2>Synchronisation Google Sheets</h2>
+<p class="subnote">La connexion au Google Sheets du FC Vendenheim est déjà configurée. Aucun réglage n’est nécessaire sur cet appareil.</p>
+<div class="btnrow" style="margin-top:10px"><button class="btn primary" id="syncSheets">Synchroniser le match actif</button></div>
+<div id="sheetsStatus" class="status" aria-live="polite">Connexion configurée. Ouvre un match puis synchronise ses données.</div>
+<p class="hint">Après avoir saisi les statistiques, clique sur « Synchroniser le match actif » pour envoyer les données vers l’onglet « Analyse matchs ».</p>
+</section>
+
+<div id="workArea" class="hidden">
+<div class="tabs" role="tablist" aria-label="Statistiques"><button class="tab" data-tab="shots" aria-selected="true">🎯 Tirs</button><button class="tab" data-tab="attacks" aria-selected="false">↗️ Attaques</button><button class="tab" data-tab="zones" aria-selected="false">🔄 Récup. / pertes</button></div>
+<div class="main-grid">
+<section class="panel tabcontent" data-content="shots">
+<h2>2. Tirs</h2><p class="subnote">Choisis l'équipe, la zone de départ du tir, puis son résultat.</p>
+<div class="sectionlabel">Équipe qui tire</div><div class="two"><button class="btn selected" data-shot-team="FCV">FC Vendenheim</button><button class="btn" data-shot-team="Adversaire">Adversaire</button></div>
+<div class="pitchlabel"><span>Notre but</span><span>But adverse</span></div>
+<div id="shotPitch" class="terrain" aria-label="Zones de tir">
+<button class="zone" data-shot-zone="6m">6 mètres<small>Zone de tir</small></button>
+<button class="zone" data-shot-zone="surface">Surface<small>Hors 6 m</small></button>
+<button class="zone" data-shot-zone="outside">Hors surface<small>Extérieur</small></button>
+</div>
+<div class="sectionlabel">Résultat de la frappe</div><div class="two"><button class="btn statbutton" data-shot-result="Cadré"><span>🎯 Cadré</span><small>Le ballon va dans le cadre</small></button><button class="btn statbutton" data-shot-result="Non cadré"><span>↗️ Non cadré</span><small>À côté ou au-dessus</small></button></div>
+<button class="btn primary wide" id="saveShot" style="margin-top:10px">Enregistrer le tir</button><p class="hint">Les tirs de FC Vendenheim et de l’adversaire sont comptabilisés séparément.</p>
+</section>
+
+<section class="panel tabcontent hidden" data-content="attacks">
+<h2>3. Couloirs d'attaque</h2><p class="subnote">Enregistre chaque attaque lorsqu'elle entre dans le dernier tiers, quel que soit son résultat.</p>
+<div class="sectionlabel">Équipe à analyser</div><div class="two"><button class="btn selected" data-attack-team="FCV">FC Vendenheim</button><button class="btn" data-attack-team="Adversaire">Adversaire</button></div>
+<div class="sectionlabel">Couloir d'entrée dans le dernier tiers</div><div class="two"><button class="btn statbutton" data-channel="Gauche"><span>⬅️ Couloir gauche</span></button><button class="btn statbutton" data-channel="Axial"><span>⬆️ Couloir axial</span></button><button class="btn statbutton" data-channel="Droit"><span>➡️ Couloir droit</span></button></div>
+<div id="attackSelection" class="hint">Équipe : FC Vendenheim · Aucun couloir sélectionné.</div><button class="btn primary wide" id="saveAttack" style="margin-top:10px">Enregistrer l'attaque</button>
+</section>
+
+<section class="panel tabcontent hidden" data-content="zones">
+<h2>4. Récupérations et pertes de balle</h2><p class="subnote">Terrain découpé en 12 zones (4 longueurs × 3 couloirs). Choisis l'équipe, le type d'action, puis la zone.</p>
+<div class="sectionlabel">Situation à enregistrer</div><div class="two"><button class="btn selected" data-zone-perspective="FCV">🟢 Récupération FCV<br><small>Perte adverse</small></button><button class="btn" data-zone-perspective="Adversaire">🔴 Perte FCV<br><small>Récupération adverse</small></button></div>
+<div class="sectionlabel">Choisir une zone</div><div class="pitchlabel"><span>Notre but</span><span>But adverse</span></div><div id="zonePitch" class="terrain"></div>
+<div id="zoneSelection" class="hint">Aucune zone sélectionnée.</div><button class="btn primary wide" id="saveZone" style="margin-top:10px">Enregistrer l'action</button>
+</section>
+
+<section class="panel">
+<h2>Résumé du match</h2><div id="metrics" class="statsgrid"></div>
+<div class="sectionlabel">Répartition des attaques</div><div id="attackSummary" class="empty">Aucune attaque enregistrée.</div>
+<div class="sectionlabel">Récupérations et pertes par zone</div><div id="zoneSummary" class="empty">Aucune action enregistrée.</div>
+</section>
+</div>
+
+<section class="panel">
+<h2>Historique des actions</h2><p class="subnote">Tu peux annuler une saisie faite par erreur. Les actions sont sauvegardées sur cet appareil.</p><div class="btnrow" style="margin-bottom:10px"><button class="btn" id="undoLast">↩ Annuler la dernière action</button><button class="btn" id="exportCsv">Exporter les actions en CSV</button><button class="btn danger" id="deleteMatch">Supprimer ce match</button></div><div id="eventLog" class="log"><div class="empty">Aucune action enregistrée.</div></div>
+</section>
+</div>
+<div class="foot">Les données restent locales jusqu’à la synchronisation manuelle vers Google Sheets.</div>
+</main>
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+const STORAGE='fcv_match_analysis_v1';
+const SHARED_SHEETS_URL='https://script.google.com/macros/s/AKfycbyc4HbWzPQPxdErC889B2HvwwX46hrG35WfFzowKM1hmF1aELfEadTXp_XzwCYArj_H/exec';
+const SHARED_SHEETS_SECRET='FCV_Analyse_21-10-2026_Vendenheim_7Kp9Qm4Xv2L8';
+let allMatches=load(), currentId=null, shotZone=null, shotResult=null, shotTeam='FCV', attackTeam='FCV', channel=null, zonePerspective='FCV', selectedZone=null;
+const zoneLabels=['Défense gauche','Défense axe','Défense droite','Milieu défensif gauche','Milieu défensif axe','Milieu défensif droit','Milieu offensif gauche','Milieu offensif axe','Milieu offensif droit','Attaque gauche','Attaque axe','Attaque droite'];
+function load(){try{return JSON.parse(localStorage.getItem(STORAGE)||'[]')}catch(e){return []}}
+function persist(){localStorage.setItem(STORAGE,JSON.stringify(allMatches))}
+function current(){return allMatches.find(m=>m.id===currentId)}
+function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function setStatus(msg){$('#matchStatus').textContent=msg}
+function setSheetsStatus(msg){$('#sheetsStatus').textContent=msg}
+function sheetsUrl(){return SHARED_SHEETS_URL}
+function sheetRow(e,m){let actionTeam='',zone='',result=e.result||'',channel=e.channel||'';if(e.type==='Tir'){actionTeam=e.shotTeam==='FCV'?'FC Vendenheim':'Adversaire';zone=({'6m':'Zone des 6 mètres','surface':'Surface hors 6 mètres','outside':'Hors surface'}[e.shotZone]||e.shotZone||'')}else if(e.type==='Attaque'){actionTeam=e.attackTeam==='FCV'?'FC Vendenheim':'Adversaire'}else{actionTeam=e.type==='Récupération'?'FCV récup. / adversaire perd':'FCV perd / adversaire récup.';zone=zoneLabels[(Number(e.zone)||1)-1]||('Zone '+e.zone)}return {date:e.date||m.date,team:m.team,opponent:m.opponent,matchId:m.id,eventId:e.id,createdAt:e.createdAt||'',type:e.type,actionTeam,zone,result,channel}}
+async function syncCurrentMatch(){const m=current(),url=sheetsUrl();if(!m){setSheetsStatus('Ouvre ou crée un match avant de synchroniser.');return}if(!url){setSheetsStatus('La connexion Google Sheets n’est pas configurée dans cette version.');return}setSheetsStatus('Envoi de '+m.events.length+' action(s) vers Google Sheets…');const payload={action:'syncMatch',secret:SHARED_SHEETS_SECRET,match:{id:m.id,date:m.date,team:m.team,opponent:m.opponent,events:m.events.map(e=>sheetRow(e,m))}};try{await fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});setSheetsStatus('Demande de synchronisation envoyée pour '+m.events.length+' action(s). Comme Google masque la réponse du navigateur, vérifie dans l’onglet « Analyse matchs » que les lignes sont bien arrivées.')}catch(err){setSheetsStatus('Échec de l’envoi. Vérifie ta connexion et l’URL de déploiement Apps Script.')}}
+function updateBtnGroup(selector,attr,val){$$(selector).forEach(b=>{const on=b.dataset[attr]===val;b.classList.toggle('selected',on)})}
+function addEvent(e){const m=current();if(!m)return; e.id=crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random();e.date=m.date;e.teamFCV=m.team;e.opponent=m.opponent;e.matchId=m.id;e.createdAt=new Date().toISOString();m.events.push(e);persist();render()}
+function createMatch(){const date=$('#matchDate').value,team=$('#team').value,opponent=$('#opponent').value.trim();if(!date||!opponent){setStatus('Renseigne la date et le nom de l’adversaire avant de continuer.');return}let m=allMatches.find(x=>x.date===date&&x.team===team&&x.opponent.toLowerCase()===opponent.toLowerCase());if(!m){m={id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),date,team,opponent,events:[],createdAt:new Date().toISOString()};allMatches.unshift(m);persist();setStatus('Match créé. Les actions seront associées à cette rencontre.')}else setStatus('Match existant ouvert : '+m.date+' · '+m.team+' contre '+m.opponent);currentId=m.id;$('#workArea').classList.remove('hidden');render()}
+function buildZonePitch(){const p=$('#zonePitch');for(let r=0;r<4;r++)for(let c=0;c<3;c++){const n=r*3+c+1,b=document.createElement('button');b.type='button';b.className='zone';b.dataset.zone=String(n);b.innerHTML='<span>Zone '+n+'</span><small>'+['Défense','Milieu déf.','Milieu off.','Attaque'][r]+' · '+['Gauche','Axe','Droite'][c]+'</small><span class=\"zone-count\" data-count-zone=\"'+n+'\">0 action</span>';b.addEventListener('click',()=>{selectedZone=n;$$('[data-zone]').forEach(x=>x.classList.toggle('active',x.dataset.zone===String(n)));$('#zoneSelection').textContent='Zone '+n+' — '+zoneLabels[n-1]+'.';});p.appendChild(b)}}
+function render(){const m=current();if(!m)return;$('#matchStatus').textContent='Match actif : '+m.date+' · '+m.team+' contre '+m.opponent;const ev=m.events;const shots=ev.filter(e=>e.type==='Tir'),attacks=ev.filter(e=>e.type==='Attaque'),zones=ev.filter(e=>e.type==='Récupération'||e.type==='Perte de balle');const zoneCount=(n,teamName,actionName)=>zones.filter(e=>e.zone===n&&((e.type==='Récupération'&&((teamName==='FCV'&&actionName==='Récupération')||(teamName==='Adversaire'&&actionName==='Perte de balle')))||(e.type==='Perte de balle'&&((teamName==='FCV'&&actionName==='Perte de balle')||(teamName==='Adversaire'&&actionName==='Récupération'))))).length;const metrics=[['Tirs FCV',shots.filter(e=>e.shotTeam==='FCV').length],['Tirs cadrés FCV',shots.filter(e=>e.shotTeam==='FCV'&&e.result==='Cadré').length],['Tirs non cadrés FCV',shots.filter(e=>e.shotTeam==='FCV'&&e.result==='Non cadré').length],['Tirs adverses',shots.filter(e=>e.shotTeam==='Adversaire').length],['Tirs cadrés adverses',shots.filter(e=>e.shotTeam==='Adversaire'&&e.result==='Cadré').length],['Tirs non cadrés adverses',shots.filter(e=>e.shotTeam==='Adversaire'&&e.result==='Non cadré').length],['Attaques FCV',attacks.filter(e=>e.attackTeam==='FCV').length],['Attaques adverses',attacks.filter(e=>e.attackTeam==='Adversaire').length],['Récupérations FCV',zones.filter(e=>e.type==='Récupération').length],['Pertes FCV',zones.filter(e=>e.type==='Perte de balle').length],['Récupérations adverses',zones.filter(e=>e.type==='Perte de balle').length],['Pertes adverses',zones.filter(e=>e.type==='Récupération').length]];$('#metrics').innerHTML=metrics.map(x=>'<div class=\"metric\"><strong>'+x[1]+'</strong><span>'+x[0]+'</span></div>').join('');
+const as=attacks.length?['FCV','Adversaire'].map(t=>'<div style=\"margin-bottom:7px\"><strong>'+(t==='FCV'?'FC Vendenheim':'Adversaire')+'</strong><div>'+['Gauche','Axial','Droit'].map(c=>c+' : '+attacks.filter(e=>e.attackTeam===t&&e.channel===c).length).join(' · ')+'</div></div>').join(''):'Aucune attaque enregistrée.';$('#attackSummary').innerHTML=as;
+const zs=zones.length?zoneLabels.map((z,i)=>{let n=i+1;const f=(t,a)=>zones.filter(e=>e.zone===n&&e.zoneTeam===t&&e.action===a).length;return '<div class=\"event\"><div class=\"event-main\"><strong>Zone '+n+' — '+z+'</strong><small>FCV : '+f('FCV','Récupération')+' récup. / '+f('FCV','Perte de balle')+' pertes</small><br><small>Adversaire : '+f('Adversaire','Récupération')+' récup. / '+f('Adversaire','Perte de balle')+' pertes</small></div></div>'}).join(''):'Aucune action enregistrée.';$('#zoneSummary').innerHTML=zs;
+$$('[data-shot-zone]').forEach(b=>b.classList.toggle('active',b.dataset.shotZone===shotZone));$$('[data-shot-result]').forEach(b=>b.classList.toggle('selected',b.dataset.shotResult===shotResult));$$('[data-shot-team]').forEach(b=>b.classList.toggle('selected',b.dataset.shotTeam===shotTeam));$$('[data-zone-perspective]').forEach(b=>b.classList.toggle('selected',b.dataset.zonePerspective===zonePerspective));$$('[data-channel]').forEach(b=>b.classList.toggle('selected',b.dataset.channel===channel));$('#attackSelection').textContent='Équipe : '+(attackTeam==='FCV'?'FC Vendenheim':'Adversaire')+' · '+(channel?'Couloir '+channel.toLowerCase()+' sélectionné.':'Aucun couloir sélectionné.');$$('[data-zone]').forEach(b=>{const n=Number(b.dataset.zone),count=ev.filter(e=>e.zone===n&&(e.type==='Récupération'||e.type==='Perte de balle')).length;const s=b.querySelector('[data-count-zone]');if(s)s.textContent=count+' action'+(count===1?'':'s')});$('#eventLog').innerHTML=ev.length?ev.slice().reverse().map(e=>{let desc=e.type==='Tir'?'Tir '+(e.shotTeam==='FCV'?'FCV':'adverse')+' '+e.result+' · '+({'6m':'Zone des 6 mètres','surface':'Surface hors 6 m','outside':'Hors surface'}[e.shotZone]):e.type==='Attaque'?'Attaque '+(e.attackTeam==='FCV'?'FCV':'adverse')+' · couloir '+e.channel.toLowerCase():(e.type==='Récupération'?'Récupération FCV / perte adverse':'Perte FCV / récupération adverse')+' · zone '+e.zone;return '<div class=\"event\"><div class=\"event-main\"><strong>'+safe(desc)+'</strong><small>'+safe(e.date)+' · '+safe(e.teamFCV)+' vs '+safe(e.opponent)+'</small></div><span class=\"pill\">Enregistré</span></div>'}).join(''):'<div class=\"empty\">Aucune action enregistrée.</div>'}
+$$('[data-tab]').forEach(b=>b.addEventListener('click',()=>{$$('[data-tab]').forEach(x=>x.setAttribute('aria-selected',String(x===b)));$$('[data-content]').forEach(x=>x.classList.toggle('hidden',x.dataset.content!==b.dataset.tab))}));
+$('#newMatch').addEventListener('click',createMatch);
+$('#clearForm').addEventListener('click',()=>{currentId=null;$('#workArea').classList.add('hidden');$('#matchDate').value=new Date().toISOString().slice(0,10);$('#opponent').value='';setStatus('Formulaire prêt pour un nouveau match.')});
+$$('[data-shot-zone]').forEach(b=>b.addEventListener('click',()=>{shotZone=b.dataset.shotZone;$$('[data-shot-zone]').forEach(x=>x.classList.toggle('active',x===b))}));
+$$('[data-shot-result]').forEach(b=>b.addEventListener('click',()=>{shotResult=b.dataset.shotResult;$$('[data-shot-result]').forEach(x=>x.classList.toggle('selected',x===b))}));
+$$('[data-shot-team]').forEach(b=>b.addEventListener('click',()=>{shotTeam=b.dataset.shotTeam;$$('[data-shot-team]').forEach(x=>x.classList.toggle('selected',x===b))}));
+$('#saveShot').addEventListener('click',()=>{if(!shotZone||!shotResult){alert('Sélectionne une zone et le résultat du tir.');return}addEvent({type:'Tir',shotZone,result:shotResult,shotTeam});shotZone=null;shotResult=null;$$('[data-shot-zone],[data-shot-result]').forEach(b=>b.classList.remove('active','selected'))});
+$$('[data-attack-team]').forEach(b=>b.addEventListener('click',()=>{attackTeam=b.dataset.attackTeam;updateBtnGroup('[data-attack-team]','attackTeam',attackTeam);$$('[data-attack-team]').forEach(x=>x.classList.toggle('selected',x.dataset.attackTeam===attackTeam));render()}));
+$$('[data-channel]').forEach(b=>b.addEventListener('click',()=>{channel=b.dataset.channel;$$('[data-channel]').forEach(x=>x.classList.toggle('selected',x===b));render()}));
+$('#saveAttack').addEventListener('click',()=>{if(!channel){alert('Sélectionne le couloir par lequel l’attaque entre dans le dernier tiers.');return}addEvent({type:'Attaque',attackTeam,channel});channel=null;$$('[data-channel]').forEach(b=>b.classList.remove('selected'));render()});
+$$('[data-zone-perspective]').forEach(b=>b.addEventListener('click',()=>{zonePerspective=b.dataset.zonePerspective;$$('[data-zone-perspective]').forEach(x=>x.classList.toggle('selected',x===b))}));
+$('#saveZone').addEventListener('click',()=>{if(!selectedZone){alert('Sélectionne une zone du terrain.');return}const type=zonePerspective==='FCV'?'Récupération':'Perte de balle';addEvent({type,forTeam:'FCV',zone:selectedZone,perspective:zonePerspective});selectedZone=null;$$('[data-zone]').forEach(b=>b.classList.remove('active'));$('#zoneSelection').textContent=zonePerspective==='FCV'?'Récupération FCV / perte adverse enregistrée.':'Perte FCV / récupération adverse enregistrée.';render()});
+$('#undoLast').addEventListener('click',()=>{const m=current();if(!m||!m.events.length){alert('Aucune action à annuler.');return}m.events.pop();persist();render()});
+$('#deleteMatch').addEventListener('click',()=>{const m=current();if(!m)return;if(!confirm('Supprimer ce match et toutes ses actions de cet appareil ?'))return;allMatches=allMatches.filter(x=>x.id!==currentId);currentId=null;persist();$('#workArea').classList.add('hidden');setStatus('Match supprimé de cet appareil.')});
+$('#exportCsv').addEventListener('click',()=>{const m=current();if(!m)return;const headers=['Date','Équipe FCV','Adversaire','Type action','Équipe concernée','Zone','Résultat','Couloir'];const rows=m.events.map(e=>[e.date,e.teamFCV,e.opponent,e.type,e.type==='Attaque'?e.attackTeam:(e.type==='Tir'?e.shotTeam:(e.type==='Récupération'?'FCV récup. / adverse perd':'FCV perd / adverse récup.')),e.type==='Tir'?({'6m':'6 mètres','surface':'Surface hors 6 mètres','outside':'Hors surface'}[e.shotZone]):e.type==='Attaque'?'':e.zone||'',e.result||'',e.channel||'']);const csv=[headers,...rows].map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='FCV_'+m.date+'_'+m.team.replace(' ','_')+'_'+m.opponent.replace(/[^a-z0-9_-]/gi,'_')+'.csv';a.click();URL.revokeObjectURL(a.href)});
+$('#syncSheets').addEventListener('click',syncCurrentMatch);
+setSheetsStatus('Connexion Google Sheets configurée automatiquement.');
+buildZonePitch();$('#matchDate').value=new Date().toISOString().slice(0,10);
+// Reopen the most recent match quickly after refresh.
+if(allMatches.length){const last=allMatches[0];$('#matchDate').value=last.date;$('#team').value=last.team;$('#opponent').value=last.opponent}
+})();
+</script>
+</body>
+</html>
